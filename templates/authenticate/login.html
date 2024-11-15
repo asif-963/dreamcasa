@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
   <title>Login Page</title>
   <style>
     /* CSS Reset */
@@ -176,7 +176,7 @@
 </head>
 <body>
   <form class="login"method="POST" action="">{% csrf_token %}
-    <img src="{% static 'images/logo-default-314x48.png' %}" alt="Logo"> <!-- Use the appropriate path to your logo -->
+    <img src="{% static 'images/logo.png' %}" alt="Logo"> <!-- Use the appropriate path to your logo -->
     <input type="text" placeholder="Username" name="username" required>
     <input type="password" placeholder="Password" name="password" required>
     <button type="submit">Login</button>
