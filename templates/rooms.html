@@ -269,11 +269,18 @@
               <li><i class="fas fa-users"></i> Sleeps 2 guests</li>
               <li><i class="fas fa-plus-circle"></i> Can accommodate 2 more guests at extra cost</li>
             </ul>
+            {% if price.price_per_night %}
             <p class="price"><i class="fas fa-tags"></i> Price per night: ₹{{ price.price_per_night }}</p>
-            {% if price.offer_price %}
+          {% else %}
+            <p class="price"><i class="fas fa-tags"></i> Price per night: Not Set</p>
+          {% endif %}
+          
+          {% if price.offer_price %}
             <p class="offer-price"><i class="fas fa-tags"></i> Offer Price: ₹{{ price.offer_price }}</p>
-            {% endif %}
-              <br>
+          {% else %}
+            <p class="offer-price"><i class="fas fa-tags"></i> Offer Price: No Offer Available</p>
+          {% endif %}
+          
             <button class="btn book-now-btn" onclick="window.location.href='{% url 'booking' %}';">Book Now</button>
 
           </div>
