@@ -68,3 +68,13 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking for {self.name} from {self.arrival_date} to {self.departure_date}"
+
+
+
+
+class RoomPrice(models.Model):
+    price_per_night = models.DecimalField(max_digits=10, decimal_places=2, help_text="Regular price per night")
+    offer_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Offer price per night")
+
+    def __str__(self):
+        return f"Room (Price: ₹{self.price_per_night}, Offer: ₹{self.offer_price or 'N/A'})"

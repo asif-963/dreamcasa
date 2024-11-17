@@ -1,5 +1,5 @@
 from django import forms
-from .models import ContactModel, NearByPlace, ClientReview, Gallery, Folder, Booking
+from .models import ContactModel, NearByPlace, ClientReview, Gallery, Folder, Booking, RoomPrice
 
 
 
@@ -58,3 +58,6 @@ class BookingForm(forms.ModelForm):
         # Set the allowed input formats for both arrival_date and departure_date fields
         self.fields['arrival_date'].input_formats = ['%A %d %B %Y']
         self.fields['departure_date'].input_formats = ['%A %d %B %Y']
+
+
+

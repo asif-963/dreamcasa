@@ -222,6 +222,17 @@
     transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
+    .price {
+        text-decoration: line-through;
+        color: gray;
+    }
+    .offer-price {
+        color: red;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+
 
 </style>    
 
@@ -258,7 +269,11 @@
               <li><i class="fas fa-users"></i> Sleeps 2 guests</li>
               <li><i class="fas fa-plus-circle"></i> Can accommodate 2 more guests at extra cost</li>
             </ul>
-            <p class="price"><i class="fas fa-tags"></i> Price per night: ₹2000</p>
+            <p class="price"><i class="fas fa-tags"></i> Price per night: ₹{{ price.price_per_night }}</p>
+            {% if price.offer_price %}
+            <p class="offer-price"><i class="fas fa-tags"></i> Offer Price: ₹{{ price.offer_price }}</p>
+            {% endif %}
+              <br>
             <button class="btn book-now-btn" onclick="window.location.href='{% url 'booking' %}';">Book Now</button>
 
           </div>

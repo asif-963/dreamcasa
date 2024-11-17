@@ -63,6 +63,11 @@ urlpatterns = [
     path('delete_image/<int:id>/',views.delete_image,name='delete_image'),
 
 
+    # add PRice
+    path('add-price', views.add_price, name='add_price'),
+
+
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # handler404 = 'dream_casa_app.views.page_404'

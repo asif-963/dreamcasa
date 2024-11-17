@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 import random
 
-from .models import ContactModel, NearByPlace, ClientReview, Gallery, Folder, GalleryImage, Booking
+from .models import ContactModel, NearByPlace, ClientReview, Gallery, Folder, GalleryImage, Booking, RoomPrice
 from .forms import ContactModelForm, NearByPlaceForm, ClientReviewForm, GalleryForm, FolderForm, BookingForm
 
 
@@ -47,7 +47,8 @@ def booking(request):
     return render(request, 'booking.html', {'form': form})
 
 def rooms(request):
-    return render(request, 'rooms.html')
+    price = RoomPrice.objects.first()
+    return render(request, 'rooms.html', {'price': price})
 
 def room_details(request):
     return render(request, 'room_details.html')
@@ -353,3 +354,21 @@ def delete_image(request,id):
     image.delete()
     return redirect('view_images')
 
+
+def add_price(request):
+    current_price = RoomPrice.objects.first()  # Fetch the first (or only) price record
+
+    if request.method == "POST":
+        price_per_night = request.POST.get("price_per_night")
+        offer_price = request.POST.get("offer_price")
+
+        # Ensure only one price record exists
+        RoomPrice.objects.all().delete()  # Clear previous records
+        RoomPrice.objects.create(
+            price_per_night=price_per_night,
+            offer_price=offer_price or None
+        )
+
+        return redirect('add_price')  # Redirect to the same page
+
+    return render(request, 'admin_pages/add_price.html', {'current_price': current_price})
