@@ -25,4 +25,4 @@ urlpatterns = [
     path('', include('dream_casa_app.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-# handler404 = 'dream_casa_app.views.page_404'
+handler404 = 'dream_casa_app.views.page_404'

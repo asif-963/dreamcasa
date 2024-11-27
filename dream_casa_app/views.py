@@ -372,3 +372,8 @@ def add_price(request):
         return redirect('add_price')  # Redirect to the same page
 
     return render(request, 'admin_pages/add_price.html', {'current_price': current_price})
+
+
+    #  404 view\
+def page_404(request, exception):
+    return render(request, '404.html', status=404)
