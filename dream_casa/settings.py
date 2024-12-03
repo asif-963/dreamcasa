@@ -85,6 +85,18 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'dreamcasaDB', 
+#         'USER': 'myuser',  
+#         'PASSWORD': 'myuser',  
+#         'HOST': 'localhost',  
+#         'PORT': '5432',  
+#     }
+# }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
